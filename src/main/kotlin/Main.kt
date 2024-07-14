@@ -1,15 +1,12 @@
 package org.example
 
-import org.example.domain_name.DomainNameManager
+import org.example.calculator.CalculatorManager
 
 fun main() {
-    val domainName = DomainNameManager()
     try {
-        domainName.getFullName()
+        val calculator = CalculatorManager()
+        calculator.execute()
     } catch (e: RuntimeException) {
-        println("any part of your name must not be nothing, Are you need to try again? yes/no")
-        val answer = readln()
-        if (answer == "yes")
-            domainName.getFullName()
+        println("we can not calculate this operation yet")
     }
 }
