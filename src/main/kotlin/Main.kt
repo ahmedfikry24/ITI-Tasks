@@ -1,15 +1,15 @@
 package org.example
 
-import org.example.domain_name.DomainNameManager
+import org.example.temperature_converter.TemperatureConverterManager
 
 fun main() {
-    val domainName = DomainNameManager()
+    val temperatureConverter = TemperatureConverterManager()
     try {
-        domainName.getFullName()
-    } catch (e: RuntimeException) {
-        println("any part of your name must not be nothing, Are you need to try again? yes/no")
+        temperatureConverter.calculate()
+    } catch (e: Exception) {
+        println("we can not assign this value, Are you need to try again? yes/no")
         val answer = readln()
         if (answer == "yes")
-            domainName.getFullName()
+            temperatureConverter.calculate()
     }
 }
