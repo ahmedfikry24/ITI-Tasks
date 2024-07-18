@@ -16,8 +16,8 @@ class PyramidPatternManager {
             repeat(numOfLines - i) {
                 print(" ")
             }
-            repeat(i * 2 - 1) {
-                print("*")
+            repeat(i) {
+                print("* ")
             }
             print("\n")
         }
