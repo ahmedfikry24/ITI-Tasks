@@ -1,15 +1,20 @@
 package org.example
 
-import org.example.temperature_converter.TemperatureConverterManager
+import org.example.pyramid_pattern.PyramidPatternManager
 
 fun main() {
-    val temperatureConverter = TemperatureConverterManager()
-    try {
-        temperatureConverter.calculate()
-    } catch (e: Exception) {
-        println("we can not assign this value, Are you need to try again? yes/no")
+    val pyramidManager = PyramidPatternManager()
+    runCatching {
+        pyramidManager.drawPyramid()
+    }.onSuccess {
+        println("are you want to draw another pyramid? yes/no")
         val answer = readln()
         if (answer == "yes")
-            temperatureConverter.calculate()
+            pyramidManager.drawPyramid()
+    }.onFailure {
+        println("we can not understand this symbol, are you want execute again? yes/no")
+        val answer = readln()
+        if (answer == "yes")
+            pyramidManager.drawPyramid()
     }
 }
