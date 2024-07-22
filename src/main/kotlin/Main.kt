@@ -1,14 +1,16 @@
 package org.example
 
-import org.example.shapes.Circle
-import org.example.shapes.Picture
-import org.example.shapes.Rectangle
-import org.example.shapes.Triangle
+import org.example.library_system.LibrarySystem
 
+lateinit var librarian: LibrarySystem
 fun main() {
-    val rectangle = Rectangle(width = 12.toDouble(), height = 6.toDouble())
-    val circle = Circle(radius = 5.toDouble())
-    val triangle = Triangle(base = 10.toDouble(), height = 16.toDouble())
-    val picture = Picture()
-    picture.sumAreas(rectangle, circle, triangle)
+    runCatching {
+        librarian = LibrarySystem()
+        librarian.executeOrder()
+    }.onFailure {
+        println("we ano not execute this function yet, are you need to start again? yes/no")
+        val answer = readln()
+        if (answer == "yes")
+            librarian.executeOrder()
+    }
 }
