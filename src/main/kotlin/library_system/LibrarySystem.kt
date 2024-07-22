@@ -61,35 +61,21 @@ class LibrarySystem {
         println("enter what type of items you need to add")
         val question = readln()
         when (question) {
-            "book" -> addBook()
-            "magazine" -> addMagazine()
-            "journal" -> addJournal()
+            "book" -> books.addItem("book")
+            "magazine" -> magazines.addItem("magazine")
+            "journal" -> journals.addItem("journal")
+            else -> throw Exception()
         }
-
     }
 
-    private fun addBook() {
-        println("enter book name")
+    private fun MutableList<String>.addItem(type: String) {
+        println("enter $type name")
         val name = readln()
-        books.add(name)
+        add(name)
         println("done")
     }
 
-    private fun addMagazine() {
-        println("enter magazine name")
-        val name = readln()
-        magazines.add(name)
-        println("done")
-    }
-
-    private fun addJournal() {
-        println("enter journal name")
-        val name = readln()
-        journals.add(name)
-        println("done")
-    }
-
-   private fun trackBorrowed() {
+    private fun trackBorrowed() {
         borrowed.forEach { (item, borrowen) ->
             println("item: $item , borrowen name: $borrowen")
         }
