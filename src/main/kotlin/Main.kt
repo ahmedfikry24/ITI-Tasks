@@ -12,3 +12,25 @@ fun main() {
     val picture = Picture()
     picture.sumAreas(rectangle, circle, triangle)
 }
+
+var anyValue: Any = "fdfd"
+fun casting() {
+    val intValue: Int? = anyValue as? Int
+    println(intValue)
+}
+
+
+fun checkingString() {
+    var nullableVar: String? = null
+    nullableVar?.let { println(it.length) }
+        ?: run {
+            nullableVar = "ahmed"
+            println(nullableVar!!.length)
+        }
+}
+
+fun printName() {
+    val readName = readlnOrNull()
+    val nullableVar: String = readName ?: "Guest"
+    println(nullableVar)
+}
